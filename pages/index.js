@@ -39,17 +39,28 @@ const generateImage= async ()=>{
   return (
   
       
-     <div className="text-center items-center content-center mt-10"> 
-     <div className="text-center items-center content-center mt-10">
-     {imageUrl && <img className="items-center object-center text-center content-center" src={imageUrl} alt='ai image'/>}
+     <div className="flex flex-col mt-10"> 
+     <div className="flex justify-center items-center mt-10">
+     {imageUrl && <img className="m-auto" src={imageUrl} alt='ai image'/>}
      </div>
+     <div className="flex flex-col items-center">
+  <div className="mr-20">
+    <Inputbox label={"Image Description"} setAttribute={setUsePrompt}/>
+  </div>
+  <div className="mr-5">
+    <Inputbox label={"Quentity"} setAttribute={setNumber}/>
+  </div>
+  <div className="ml-2">
+    <Inputbox label={"Size"} setAttribute={setSize}/>
+  </div>
+  <button onClick={()=>generateImage()} 
+      className="bg-bl-color p-2 text-white mt-5 rounded-lg w-32 active:bg-blue-600">Generate</button>
+</div>
 
-      <Inputbox label={"Description"} setAttribute={setUsePrompt}/>
-      <Inputbox label={"Amount"} setAttribute={setNumber}/>
-      <Inputbox label={"Size"} setAttribute={setSize}/>
     
-      <button onClick={()=>generateImage()} 
-      className="bg-bl-color p-2 text-white mt-5 rounded-lg w-32">Generate</button>
+      
+    
+     
     
      </div>
         
